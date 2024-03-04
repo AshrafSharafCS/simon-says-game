@@ -24,12 +24,17 @@ function PlayLevel() {
   board.classList.remove("unclickable");
   playArray.forEach((color, index) => {
     board.addEventListener("click", function (event) {
-      choosenTile = event.target.dataset;
-      console.log(choosenTile);
+      choosenTile = event.target.dataset.tile;
+      answerArray.push(choosenTile);
+      console.log(answerArray);
+     
     });
-  });
+  }); 
 }
-
+function PlayLevel(){
+  board.classList.remove("unclickable");
+  
+}
 
 function RunLevel() {
   playArray.forEach((color, indexinarray) => {
@@ -50,7 +55,7 @@ function Startgame() {
   count += 1;
   playArray.push(colors[GenerateRandomNumber()]);
   RunLevel();
-  PlayLevel();
+  PlayLevel(playArray);
 }
 
 function Playsound(toBePlayed) {
